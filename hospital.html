@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <div class="container">
+        <form>
+            <label for="item1">증상</label>
+            <input type="text" id="item1">
+
+            <label for="item2">나이</label>
+            <input type="text" id="item2">
+
+            <label for="item3">성별</label>
+            <input type="text" id="item3">
+
+            <label for="item4">현위치</label>
+            <input type="text" id="item4">
+            
+            <button type="submit">질문하기!</button>
+        </form>
+        <div class="answer">
+            <table id="results-table" style="display:none;">
+                <thead>
+                    <tr>
+                        <th>병원</th>
+                        <th>진료과목</th>
+                        <th>위치</th>
+                        <th>전화번호</th>
+                        <th>영업시간</th>
+                        <th>예약</th>
+                        <th>평점</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 검색 결과가 여기에 삽입됩니다 -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+        const $input1 = document.querySelector('#item1')
+        const $input2 = document.querySelector('#item2')
+        const $input3 = document.querySelector('#item3')        
+        const $input4 = document.querySelector('#item4')        
+
+        const $button = document.querySelector('button')
+        const $answer = document.querySelector('.answer')
+
+        const data = []
+        data.push({
+            "role": "system",
+            "content": `assistant는 좋은 병원을 추천해주는 의사입니다. [ {"name": "병원이름", "medical_specialties": "진료과목", "location": "위치", "phone_number": "전화번호",  "business_hours": "영업시간", "website": "웹사이트", "rating": "평점"}] 이 형태의 json 객체 배열 형태로만 답해주세요.  location의 값은, 가장 가까운 거리 순으로, website의 값은, 네이버에서 검색 가능한, 해당 병원의 홈페이지입니다. 평점의 출처도 알려주세요.`
+        })
+
+        const url = `https://open-api.jejucodingcamp.workers.dev/`
+        
+        $button.addEventListener('click', e => {
+            e.preventDefault();
+
+            if (!$input1.value || !$input2.value || !$input3.value || !$input4.value) {
+                    alert("모든 필드를 채워주세요.");
+                    return;
+                }
+
+            getUserLocation();
+
+            const contents1 = $input1.value
+            const contents2 = $input2.value
+            const contents3 = $input3.value
+            const contents4 = $input4.value
+
+            data.push({
+                        "role": "user",
+                        "content": `나는 ${contents1} 증상이 있고, ${contents2}살 ${contents3}입니다. 현재 위치는 ${contents4}입니다. 이에 적합한 병원을 추천해주세요.
+                        `
+                    });
+
+            $input1.value = ''
+            $input2.value = ''
+            $input3.value = ''
+            $input4.value = ''
+
+            chatGPTAPI()
+        })
+
+        function chatGPTAPI() {
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data),
+                redirect: 'follow'
+            })
+            .then(res => res.json())
+            .then(res => {
+                console.log(res)
+
+                let hospitals;
+                    if (typeof res.choices[0].message.content === 'string') {
+                        try {
+                            hospitals = JSON.parse(res.choices[0].message.content);
+                        } catch (error) {
+                            console.error('Parsing error:', error);
+                            return; // 파싱 오류 시 함수 종료
+                        }
+                    } else {
+                        // 응답이 이미 객체 형태인 경우, 직접 사용
+                        hospitals = res.choices[0].message.content;
+                    }
+
+                    console.log("병원 데이터: ", hospitals); // 파싱된 데이터 확인
+                     updateResultsTable(hospitals);
+
+                // try {
+                //     const hospitals = JSON.parse(res.choices[0].message.content); // 문자열을 JSON 객체로 파싱
+                //     console.log(hospitals);
+                //     updateResultsTable(hospitals);
+                // } catch (error) {
+                //     console.error('Parsing error:', error);
+                //     // 여기서 적절한 오류 처리 로직 추가
+                // }
+                
+                // 답변 온 것을 assistant로 저장
+                // const hospitals = res.choices[0].message.content;
+                // console.log(hospitals)
+
+                // updateResultsTable(hospitals);
+
+                // $answer.innerHTML = `<p>${res.choices[0].message.content}</p>`
+
+            }).catch(error => console.error('Error:', error));
+        }
+
+        function updateResultsTable(hospitals) {
+                const table = document.querySelector('#results-table'); // 수정된 부분
+                const tbody = table.querySelector('tbody');
+
+    // 기존 테이블 내용을 초기화
+                tbody.innerHTML = '';
+
+                // 데이터로 테이블 채우기
+                hospitals.forEach(hospital => {
+                    const row = tbody.insertRow();
+                    const nameCell = row.insertCell(0);
+                    const medical_specialtiesCell = row.insertCell(1);
+                    const locationCell = row.insertCell(2);
+                    const phone_numberCell = row.insertCell(3);
+                    const business_hoursCell = row.insertCell(4);
+                    const websiteCell = row.insertCell(5);
+                    const ratingCell = row.insertCell(6);
+
+                    nameCell.textContent = hospital.name;
+                    medical_specialtiesCell.textContent = hospital.medical_specialties;
+                    locationCell.textContent = hospital.location;
+                    phone_numberCell.textContent = hospital.phone_number;
+                    business_hoursCell.textContent = hospital.business_hours;
+                    websiteCell.textContent = hospital.website  || '정보 없음';;
+                    ratingCell.textContent = hospital.rating;
+    });
+
+    // 테이블을 표시
+    // table.style.display = 'table';
+    document.querySelector('#results-table').style.display = 'table'; 
+}
+
+
+//사용자 위치 기반
+function getUserLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(position => {
+            const { latitude, longitude } = position.coords;
+            console.log("Latitude: " + latitude + ", Longitude: " + longitude);
+            chatGPTAPI(latitude, longitude); // 사용자 위치를 포함하여 API 호출
+        }, showError);
+    } else {
+        console.log("Geolocation is not supported by this browser.");
+    }
+}
+
+function showPosition(position) {
+  const latitude = position.coords.latitude;
+  const longitude = position.coords.longitude;
+  console.log("Latitude: " + latitude + ", Longitude: " + longitude);
+  // 이 위치를 사용하여 병원 데이터를 요청합니다.
+}
+
+function showError(error) {
+  switch(error.code) {
+    case error.PERMISSION_DENIED:
+      console.log("User denied the request for Geolocation.");
+      break;
+    case error.POSITION_UNAVAILABLE:
+      console.log("Location information is unavailable.");
+      break;
+    case error.TIMEOUT:
+      console.log("The request to get user location timed out.");
+      break;
+    case error.UNKNOWN_ERROR:
+      console.log("An unknown error occurred.");
+      break;
+  }
+}
+
+
+
+
+
+    </script>
+</body>
+</html>

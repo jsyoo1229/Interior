@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <div class="container">
+        <form>
+            <label for="item1">장르</label>
+            <input type="text" id="item1" placeholder="장르">
+
+            <label for="item2">배우</label>
+            <input type="text" id="item2" placeholder="배우">
+
+            <label for="item3">시청연령</label>
+            <input type="text" id="item3" placeholder="시청연령">
+
+            <label for="item4">국가</label>
+            <input type="text" id="item4" placeholder="국가">
+            
+            <button type="submit">질문하기!</button>
+        </form>
+        <div class="answer">
+            <table id="results-table" style="display:none;">
+                <thead>
+                    <tr>
+                        <th>영화 이름</th>
+                        <th>연도</th>
+                        <th>출연 배우</th>
+                        <th>감독</th>
+                        <th>장르</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 검색 결과가 여기에 삽입됩니다 -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+        const $input1 = document.querySelector('#item1')
+        const $input2 = document.querySelector('#item2')
+        const $input3 = document.querySelector('#item3')        
+        const $input4 = document.querySelector('#item4')        
+
+        const $button = document.querySelector('button')
+        const $answer = document.querySelector('.answer')
+
+        const data = []
+        data.push({
+            "role": "system",
+            "content": `assistant는 영화를 추천해주는 영화 평론가입니다. [ {"name": "영화 이름", "year": "2024", "actors": ["배우1", "배우2"], "director": "감독 이름",  "genre": "장르"}] 이 형태의 json 객체 배열 형태로만 답해주세요`
+        })
+
+        const url = `https://open-api.jejucodingcamp.workers.dev/`
+        
+        $button.addEventListener('click', e => {
+            e.preventDefault()
+            const contents1 = $input1.value
+            const contents2 = $input2.value
+            const contents3 = $input3.value
+            const contents4 = $input4.value
+
+            data.push({
+                        "role": "user",
+                        "content": `장르: ${contents1}, 배우: ${contents2}, 시청연령: ${contents3}, 국가: ${contents4}
+                        `
+                    });
+
+            $input1.value = ''
+            $input2.value = ''
+            $input3.value = ''
+            $input4.value = ''
+
+            chatGPTAPI()
+        })
+
+        function chatGPTAPI() {
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data),
+                redirect: 'follow'
+            })
+            .then(res => res.json())
+            .then(res => {
+                console.log(res)
+
+                try {
+                    const movies = JSON.parse(res.choices[0].message.content); // 문자열을 JSON 객체로 파싱
+                    console.log(movies);
+                    updateResultsTable(movies);
+                } catch (error) {
+                    console.error('Parsing error:', error);
+                    // 여기서 적절한 오류 처리 로직 추가
+                }
+                
+                // 답변 온 것을 assistant로 저장
+                // const movies = res.choices[0].message.content;
+                // console.log(movies)
+
+                // updateResultsTable(movies);
+
+                // $answer.innerHTML = `<p>${res.choices[0].message.content}</p>`
+
+            }).catch(error => console.error('Error:', error));
+        }
+
+        function updateResultsTable(movies) {
+                const table = document.querySelector('#results-table'); // 수정된 부분
+                const tbody = table.querySelector('tbody');
+
+    // 기존 테이블 내용을 초기화
+                tbody.innerHTML = '';
+
+                // 데이터로 테이블 채우기
+                movies.forEach(movie => {
+                    const row = tbody.insertRow();
+                    const nameCell = row.insertCell(0);
+                    const yearCell = row.insertCell(1);
+                    const actorsCell = row.insertCell(2);
+                    const directorCell = row.insertCell(3);
+                    const genreCell = row.insertCell(4);
+
+                    nameCell.textContent = movie.name;
+                    yearCell.textContent = movie.year;
+                    actorsCell.textContent = movie.actors.join(', ');
+                    directorCell.textContent = movie.director;
+                    genreCell.textContent = movie.genre;
+    });
+
+    // 테이블을 표시
+    table.style.display = 'table';
+}
+
+    </script>
+</body>
+</html>
