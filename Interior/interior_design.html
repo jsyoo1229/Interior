@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>인테리어 디자인</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="home.html">인테리어 디자인</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="home.html">홈</a></li>
+                    <li class="nav-item"><a class="nav-link" href="interior_design.html">디자인 추천</a></li>
+                    <li class="nav-item"><a class="nav-link" href="furniture.html">가구 목록</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-dark py-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder">인테리어 디자인 추천</h1>
+                <p class="lead fw-normal text-white-50 mb-0">당신만의 디자인을 제안해드립니다.</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="py-5" style="padding-top: 8rem !important;">
+        <div class="container my-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <h2 style="font-weight: bold;">보다 자세한 제안을 위한 설문입니다.</h2>
+                    <br>
+                    <div class="container">
+                        <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuMY01OjGv38z2MLgPdqwgMfmHwmt0FeRs9tRXDTP9EAK7XS6hwoik3i4jQXOUlmteWBo&usqp=CAU" class="card-img-top rounded-top" alt="인테리어 이미지" style="flex-wrap: wrap;" > -->
+                        <!-- 질문 1 -->
+                        <!-- <p>1. 선호하는 거실 스타일은?</p> -->
+                        <div>
+                           <label for="livingRoomStyle1" class="lb">1. 선호하는 거실 스타일은?</label><br>
+                            <input type="radio" id="livingRoomStyle1" name="livingRoomStyle" value="모던"><label for="livingRoomStyle1">모던</label>
+                            <input type="radio" id="livingRoomStyle2" name="livingRoomStyle" value="클래식"><label for="livingRoomStyle2">클래식</label>
+                            <input type="radio" id="livingRoomStyle3" name="livingRoomStyle" value="미니멀리스트"><label for="livingRoomStyle3">미니멀리스트</label>
+                            <input type="radio" id="livingRoomStyle4" name="livingRoomStyle" value="산업적"><label for="livingRoomStyle4">산업적</label>
+                            <input type="radio" id="livingRoomStyle5" name="livingRoomStyle" value="보헤미안"><label for="livingRoomStyle5">보헤미안</label>
+                        </div><br>  
+                
+                        <!-- 질문 2 -->
+                        <!-- <p>2. 가장 선호하는 색상은?</p> -->
+                        <label for="favoriteColor" class="lb">2. 가장 선호하는 색상은?</label><br>
+                        <input type="text" id="favoriteColor"><br><br>
+                
+                        <!-- 질문 3 -->
+                        <!-- <p>3. 거실에 추가하고 싶은 요소는? (여러 개 선택 가능)</p> -->
+                        <label for="element" class="lb">3. 거실에 추가하고 싶은 요소는?</label><br>
+                        <input type="checkbox" id="element1" name="element" value="조명"><label for="element1">조명</label>
+                        <input type="checkbox" id="element2" name="element" value="식물"><label for="element2">식물</label>
+                        <input type="checkbox" id="element3" name="element" value="예술작품"><label for="element3">예술작품</label>
+                        <input type="checkbox" id="element4" name="element" value="러그"><label for="element4">러그</label>
+                        <input type="checkbox" id="element5" name="element" value="책장"><label for="element5">책장</label>
+                        <br><br>
+                
+                        <!-- 질문 4 -->
+                        <!-- <p>4. 주방 바닥재로 선호하는 것은?</p> -->
+                        <div>
+                            <label for="favoriteColor" class="lb">4. 주방 바닥재로 선호하는 것은?</label><br>
+                            <input type="radio" id="kitchenFlooring1" name="kitchenFlooring" value="타일"><label for="kitchenFlooring1">타일</label>
+                            <input type="radio" id="kitchenFlooring2" name="kitchenFlooring" value="목재"><label for="kitchenFlooring2">목재</label>
+                            <input type="radio" id="kitchenFlooring3" name="kitchenFlooring" value="대리석"><label for="kitchenFlooring3">대리석</label>
+                            <input type="radio" id="kitchenFlooring4" name="kitchenFlooring" value="라미네이트"><label for="kitchenFlooring4">라미네이트</label>
+                            <input type="radio" id="kitchenFlooring5" name="kitchenFlooring" value="비닐"><label for="kitchenFlooring5">비닐</label>
+                        </div>
+                        <br>
+                
+                        <!-- 질문 5 -->
+                        <!-- <p>5. 침실 조명 선호도는?</p> -->
+                        <div>
+                            <label for="bedroomLighting" class="lb">5. 침실 조명 선호도는?</label><br>
+                            <input type="radio" id="bedroomLighting1" name="bedroomLighting" value="밝은"><label for="bedroomLighting1">밝은</label>
+                            <input type="radio" id="bedroomLighting2" name="bedroomLighting" value="조절가능한"><label for="bedroomLighting2">조절가능한</label>
+                            <input type="radio" id="bedroomLighting3" name="bedroomLighting" value="따뜻한"><label for="bedroomLighting3">따뜻한</label>
+                            <input type="radio" id="bedroomLighting4" name="bedroomLighting" value="차가운"><label for="bedroomLighting4">차가운</label>
+                            <input type="radio" id="bedroomLighting5" name="bedroomLighting" value="LED"><label for="bedroomLighting5">LED</label>
+                        </div>
+                        <br>
+                        <!-- 질문 6 -->
+                        <!-- <p>6. 홈 오피스에 필요한 가장 중요한 요소는?</p> -->
+                        <div>
+                            <label for="homeOfficeEssential" class="lb">6. 홈 오피스에 필요한 가장 중요한 요소는?</label><br>
+                            <input type="radio" id="homeOfficeEssential1" name="homeOfficeEssential" value="좋은 의자"><label for="homeOfficeEssential1">좋은 의자</label>
+                            <input type="radio" id="homeOfficeEssential2" name="homeOfficeEssential" value="넓은 책상"><label for="homeOfficeEssential2">넓은 책상</label>
+                            <input type="radio" id="homeOfficeEssential3" name="homeOfficeEssential" value="충분한 조명"><label for="homeOfficeEssential3">충분한 조명</label>
+                            <input type="radio" id="homeOfficeEssential4" name="homeOfficeEssential" value="조용한 환경"><label for="homeOfficeEssential4">조용한 환경</label>
+                            <input type="radio" id="homeOfficeEssential5" name="homeOfficeEssential" value="정리 정돈"><label for="homeOfficeEssential5">정리 정돈</label>
+                        </div>
+                        <br>
+                
+                        <!-- 질문 7 -->
+                        <!-- <p>7. 화장실 스타일 선호는?</p> -->
+                        <div>
+                            <label for="bathroomStyle" class="lb">7. 화장실 스타일 선호는?</label><br>
+                            <input type="radio" id="bathroomStyle1" name="bathroomStyle" value="현대적"><label for="bathroomStyle1">현대적</label>
+                            <input type="radio" id="bathroomStyle2" name="bathroomStyle" value="자연 친화적"><label for="bathroomStyle2">자연 친화적</label>
+                            <input type="radio" id="bathroomStyle3" name="bathroomStyle" value="럭셔리"><label for="bathroomStyle3">럭셔리</label>
+                            <input type="radio" id="bathroomStyle4" name="bathroomStyle" value="미니멀"><label for="bathroomStyle4">미니멀</label>
+                            <input type="radio" id="bathroomStyle5" name="bathroomStyle" value="전통적"><label for="bathroomStyle5">전통적</label>
+                        </div>
+                        <br>
+                        <!-- 질문 8 -->
+                        <!-- <p>8. 선호하는 창문 처리 방식은?</p> -->
+                        <div>
+                            <label for="windowTreatment" class="lb">8. 선호하는 창문 처리 방식은?</label><br>
+                            <input type="radio" id="windowTreatment1" name="windowTreatment" value="커튼"><label for="windowTreatment1">커튼</label>
+                            <input type="radio" id="windowTreatment2" name="windowTreatment" value="블라인드"><label for="windowTreatment2">블라인드</label>
+                            <input type="radio" id="windowTreatment3" name="windowTreatment" value="셔터"><label for="windowTreatment3">셔터</label>
+                            <input type="radio" id="windowTreatment4" name="windowTreatment" value="무처리"><label for="windowTreatment4">무처리</label>
+                            <input type="radio" id="windowTreatment5" name="windowTreatment" value="기타"><label for="windowTreatment5">기타</label>
+                        </div>
+                        <br>
+                        <!-- 질문 9 -->
+                        <!-- <p>9. 선호하는 야외 공간 스타일은?</p> -->
+                        <div>
+                            <label for="windowTreatment" class="lb">9. 선호하는 야외 공간 스타일은?</label><br>
+                            <input type="radio" id="outdoorSpaceStyle1" name="outdoorSpaceStyle" value="정원"><label for="outdoorSpaceStyle1">정원</label>
+                            <input type="radio" id="outdoorSpaceStyle2" name="outdoorSpaceStyle" value="파티오"><label for="outdoorSpaceStyle2">파티오</label>
+                            <input type="radio" id="outdoorSpaceStyle3" name="outdoorSpaceStyle" value="발코니"><label for="outdoorSpaceStyle3">발코니</label>
+                            <input type="radio" id="outdoorSpaceStyle4" name="outdoorSpaceStyle" value="테라스"><label for="outdoorSpaceStyle4">테라스</label>
+                            <input type="radio" id="outdoorSpaceStyle5" name="outdoorSpaceStyle" value="루프탑"><label for="outdoorSpaceStyle5">루프탑</label>
+                        </div>
+                        <br>
+                        <!-- <p>10. 추가로 원하는 인테리어 조언이 있다면 적어주세요:</p> -->
+                        <label for="additionalAdvice" class="lb">10. 추가로 원하는 인테리어 조언이 있다면 적어주세요:</label><br>
+                        <textarea id="additionalAdvice"></textarea>
+                
+                        <button id="submitButton">인테리어 추천받기!</button>
+                    </div>
+                
+                    <!-- <div id="answer" style="padding: 10px; border: 1px solid #ccc; margin-top: 20px;"></div> -->
+
+                    <div id="answer" style="padding: 10px; border: 1px solid #ccc; margin-top: 20px; font-weight: bold; margin-bottom: 20px;"></div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    
+
+    <footer class="py-5 bg-dark">
+        <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Interior 2024</p></div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/scripts.js"></script>
+
+    <script type="module" src="../modules/script.js"></script>
+</body>
+</html>
