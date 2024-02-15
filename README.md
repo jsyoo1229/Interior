@@ -46,15 +46,15 @@
 * interior<br>
     ├──assets<br>
     ├──css<br>
-    ├──js<br>   
-    ├──furniture.html<br>        
-    ├──home.html<br> 
+    ├──js<br>
+    ├──furniture.html<br> 
+    ├──home.html<br>
     ├──interior_design.html<br>    
 
   modules<br>
-    ├──data.js<br>  
+    ├──data.js<br>
     ├──fetchData.js<br> 
-    ├──script.js<br> 
+    ├──script.js<br>
     ├──userAnswers.js<br>              
       
 ##6. 개발 일정
