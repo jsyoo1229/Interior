@@ -57,7 +57,7 @@
     ├──script.js<br>
     ├──userAnswers.js<br>              
       
-##6. 개발 일정
+## 6. 개발 일정
 ![일정 WBS-2024-02-15-150254](https://github.com/jsyoo1229/Interior/assets/112743397/a6eda0ca-c6a7-4d68-aa17-12b82a18f316)
 
 ## 7. 와이어프레임
@@ -72,13 +72,13 @@
 
 
 ## 8. 화면 설계
-* 홈 화면에서 인테리어 디자인 추천 기능으로 이동
+* 홈 화면에서 인테리어 디자인 추천 기능으로 이동<br>
   ![Home](https://github.com/jsyoo1229/Interior/assets/112743397/2f324a87-74b1-4510-93cc-52730374203b)
 
-* 인테리어 디자인 추천 기능 시연
+* 인테리어 디자인 추천 기능 시연<br>
   ![Interior_design](https://github.com/jsyoo1229/Interior/assets/112743397/26be198a-2ce1-4740-b40b-3d7d584880f8)
 
-* 구매 가능한 사이트 연결 기능 시연
+* 구매 가능한 사이트 연결 기능 시연<br>
   ![furniture](https://github.com/jsyoo1229/Interior/assets/112743397/90ad0973-34cb-4511-af08-a706dc92c1fe)
 
 ## 9. Architecture
