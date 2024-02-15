@@ -3,10 +3,10 @@
 * 인공지능 모델을 활용하여, 사용자의 취향에 맞는 인테리어 디자인 커스터마이즈 서비스 제공
 
 ##2. 개발환경 및 배포 URL
-* 개발환경
+###1) 개발환경
 * HTML, CSS, JAVASCRIPT, Visual Studio Code
 
-* 배포 URL
+###2) 배포 URL
 * https://jsyoo1229.github.io/Interior/
 
 ##3. URL 구조
