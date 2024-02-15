@@ -43,19 +43,19 @@
 
 
 ## 5. 프로젝트 구조
-* interior
-    ├──assets
-    ├──css
-    ├──js   
-    ├──furniture.html        
-    ├──home.html 
-    ├──interior_design.html    
+* interior<br>
+    ├──assets<br>
+    ├──css<br>
+    ├──js<br>   
+    ├──furniture.html<br>        
+    ├──home.html<br> 
+    ├──interior_design.html<br>    
 
-  modules
-    ├──data.js  
-    ├──fetchData.js 
-    ├──script.js 
-    ├──userAnswers.js              
+  modules<br>
+    ├──data.js<br>  
+    ├──fetchData.js<br> 
+    ├──script.js<br> 
+    ├──userAnswers.js<br>              
       
 ##6. 개발 일정
 ![일정 WBS-2024-02-15-150254](https://github.com/jsyoo1229/Interior/assets/112743397/a6eda0ca-c6a7-4d68-aa17-12b82a18f316)
