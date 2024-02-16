@@ -4,7 +4,7 @@
 
 ## 2. 개발환경 및 배포 URL
 ### 1) 개발환경
-* HTML, CSS, JAVASCRIPT, Visual Studio Code
+* HTML, CSS, JAVASCRIPT, OpenAI API, Bootstrap, Visual Studio Code
 
 ### 2) 배포 URL
 * https://jsyoo1229.github.io/Interior/
