@@ -64,13 +64,16 @@
 
 ## 7. UI
 * home화면으로, 버튼과 하이퍼링크 텍스트로, 인테리어 추천과, 가구 목록 화면으로 이동할 수 있습니다.<br>
-  ![Home](https://github.com/jsyoo1229/Interior/assets/112743397/0eada73f-a4e3-44df-a972-acaba0e90a4e)
+  ![Home](https://github.com/jsyoo1229/Interior/assets/112743397/912ddbe7-f1c4-469a-aa5f-6c2fe8d6547d)
 
 * 인테리어 디자인 추천 기능이 있습니다. 사용자에게서 받은 10가지 설문의 데이터를 바탕으로, 인공지능 모델 api가 맞춤형 디자인을 추천해줍니다.<br>
-  ![Interior_design](https://github.com/jsyoo1229/Interior/assets/112743397/c63f7abf-7d33-45e3-b0a2-965630581a59)
+  ![design](https://github.com/jsyoo1229/Interior/assets/112743397/54433681-403c-439d-9a4d-259b2519dae4)<br>
+  ![design2](https://github.com/jsyoo1229/Interior/assets/112743397/665a807c-2a95-4263-8cfe-eff0250a7850)
 
 * '구매' 버튼을 누르면, 인테리어에 필요한 가구들을, 종류별로 구매 가능한 사이트에 연결시켜줍니다.<br>
-  ![furniture](https://github.com/jsyoo1229/Interior/assets/112743397/cbc2a173-ea2b-4d0f-a56d-6312adc7ffa2)
+![furniture](https://github.com/jsyoo1229/Interior/assets/112743397/becb4984-f9cc-4fb8-8905-d2422be26d92)<br>
+![furniture2](https://github.com/jsyoo1229/Interior/assets/112743397/ae113e82-310c-4755-bd42-709c81ca2284)
+
 
 
 ## 8. 화면 설계
