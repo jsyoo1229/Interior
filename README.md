@@ -43,20 +43,20 @@
 
 
 ## 5. 프로젝트 구조
-┣ 📂interior
-┃ ┣ 📂assets
-┃ ┣ 📂css
-┃ ┣ 📂js
-┃ ┣ 📜furniture.html
-┃ ┣ 📜home.html
-┃ ┣ 📜interior_design.html
+┣ 📂interior<br>
+┃ ┣ 📂assets<br>
+┃ ┣ 📂css<br>
+┃ ┣ 📂js<br>
+┃ ┣ 📜furniture.html<br>
+┃ ┣ 📜home.html<br>
+┃ ┣ 📜interior_design.html<br><br>
 
-┣ 📂modules
-┃ ┣ 📜data.js
-┃ ┣ 📜fetchData.js
-┃ ┣ 📜script.js
-┃ ┣ 📜forms.py
-┃ ┣ 📜userAnswers.js
+┣ 📂modules<br>
+┃ ┣ 📜data.js<br>
+┃ ┣ 📜fetchData.js<br>
+┃ ┣ 📜script.js<br>
+┃ ┣ 📜forms.py<br>
+┃ ┣ 📜userAnswers.js<br>
             
       
 ## 6. 개발 일정
